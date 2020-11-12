@@ -10,13 +10,22 @@ import UIKit
 
 class NewsHeadlineTableViewController: UITableViewController {
     
+    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        populateHeadlinesInArticles()
     }
     
     private func setupUI() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func populateHeadlinesInArticles() {
+        CategoryService().getAllHeadlinesForAllCategories { (categories) in
+            print(categories)
+        }
     }
 }

@@ -16,13 +16,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gY4-VL-T6L">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsHeadlineTableViewCell" rowHeight="80" id="gY4-VL-T6L" customClass="NewsHeadlineTableViewCell" customModule="NewsFeed" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gY4-VL-T6L" id="Vge-36-9I8">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M8p-5t-sMy">
+                                            <rect key="frame" x="20" y="11" width="324" height="58"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1u-Ka-OJY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="324" height="33"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWD-ZX-wkn">
+                                                    <rect key="frame" x="0.0" y="41" width="324" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beautiful-color-gradient-hues-backgrounds-ffa6b7-1e2ad2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Iue-6b-i3R">
+                                            <rect key="frame" x="344" y="11" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="Mnn-Cb-Tfd"/>
+                                                <constraint firstAttribute="height" constant="50" id="s4G-ke-l8n"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="M8p-5t-sMy" firstAttribute="leading" secondItem="Vge-36-9I8" secondAttribute="leadingMargin" id="BJq-Py-eqy"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="M8p-5t-sMy" secondAttribute="bottom" id="Gva-lX-qzt"/>
+                                        <constraint firstItem="Iue-6b-i3R" firstAttribute="trailing" secondItem="Vge-36-9I8" secondAttribute="trailingMargin" id="IyT-Ul-QU1"/>
+                                        <constraint firstItem="Iue-6b-i3R" firstAttribute="leading" secondItem="M8p-5t-sMy" secondAttribute="trailing" id="NPF-QS-9pH"/>
+                                        <constraint firstItem="M8p-5t-sMy" firstAttribute="top" secondItem="Vge-36-9I8" secondAttribute="topMargin" id="gn3-1u-Aw6"/>
+                                        <constraint firstItem="Iue-6b-i3R" firstAttribute="top" secondItem="Vge-36-9I8" secondAttribute="topMargin" id="r02-in-AWU"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="dWD-ZX-wkn" id="dNu-0F-CLW"/>
+                                    <outlet property="headlineImageView" destination="Iue-6b-i3R" id="VUY-lf-cdA"/>
+                                    <outlet property="titleLabel" destination="n1u-Ka-OJY" id="7fa-S7-IaE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -56,6 +95,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="beautiful-color-gradient-hues-backgrounds-ffa6b7-1e2ad2.png" width="500" height="500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
