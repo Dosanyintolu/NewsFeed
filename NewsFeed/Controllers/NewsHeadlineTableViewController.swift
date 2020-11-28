@@ -39,6 +39,11 @@ class NewsHeadlineTableViewController: UITableViewController {
         return self.categoryListVM.numberOfRowsInSection(section)
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let name = self.categoryListVM.categoryAtIndex(index: section).name
+        return UIView.viewForSectionHeader(title: name)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsHeadlineTableViewCell", for: indexPath) as? NewsHeadlineTableViewCell else {
            fatalError("NewsHeadlineTableViewCell not found")
@@ -46,7 +51,10 @@ class NewsHeadlineTableViewController: UITableViewController {
         
         let articleVM = self.categoryListVM.categoryAtIndex(index: indexPath.section).articleAtIndex(index: indexPath.row)
         cell.configure(vm: articleVM)
-        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return self.categoryListVM.heightForHeaderInSection(section)
     }
 }

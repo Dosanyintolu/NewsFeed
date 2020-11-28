@@ -32,8 +32,9 @@ extension UIView {
         
         let sectionHeaderLabel = UILabel(frame: headerView.frame)
         sectionHeaderLabel.text = title
-        sectionHeaderLabel.textAlignment = .center
-        sectionHeaderLabel.textColor = UIColor.gray
+        sectionHeaderLabel.textAlignment = .left
+        sectionHeaderLabel.textColor = UIColor.black
+        sectionHeaderLabel.font = UIFont.fontForSectionHeaderTitle()
         
         headerView.addSubview(sectionHeaderLabel)
         return headerView
