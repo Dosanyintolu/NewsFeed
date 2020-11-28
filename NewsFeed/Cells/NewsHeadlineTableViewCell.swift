@@ -16,3 +16,12 @@ class NewsHeadlineTableViewCell:  UITableViewCell {
     @IBOutlet weak var headlineImageView: UIImageView!
     
 }
+
+
+extension NewsHeadlineTableViewCell {
+    func configure(vm: ArticleViewModel) {
+        self.titleLabel.text = vm.title
+        self.descriptionLabel.text = vm.description
+        vm.image{ self.headlineImageView.image = $0}
+    }
+}
